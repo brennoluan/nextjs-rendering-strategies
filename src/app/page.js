@@ -31,6 +31,17 @@ const fetchProducts = async () => {
   return await response.json();
 };
 
+export const metadata = {
+  title: "Meteora | Loja de Roupas",
+  description:
+    "Descubra as ultimas tendencias em moda na Meteora. Camisetas, blusas, calcados e muito mais com qualidade e estilo.",
+  keywords: "moda, roupas, camisetas, calcados, meteora",
+  openGraph: {
+    title: "Meteora | Loja de Roupas",
+    description: "As ultimas tendencias em moda voce encontra aqui!",
+    type: "website",
+  },
+};
 export default async function Home() {
   const [categorias, produtos] = await Promise.all([
     fetchCategories(),
