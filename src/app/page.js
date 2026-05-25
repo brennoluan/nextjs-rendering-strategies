@@ -3,6 +3,15 @@ import { Categorias } from "./components/Categorias";
 import { Produtos } from "./components/Produtos";
 import { API_BASE_URL, API_ENDPOINTS } from "../../lib/config";
 import { fetchCategories, fetchProducts } from "../../lib/data-layer";
+import { unstable_cache } from "next/cache";
+
+const getCachedProducts = unstable_cache(
+  () => fetchProducts({ limit: 6 }),
+  ["products-home"],
+  {
+    revalidate: 10,
+  },
+);
 
 export const metadata = {
   title: "Meteora | Loja de Roupas",
@@ -15,10 +24,11 @@ export const metadata = {
     type: "website",
   },
 };
+
 export default async function Home() {
   const [categorias, produtos] = await Promise.all([
     fetchCategories(),
-    fetchProducts(),
+    getCachedProducts(),
   ]);
 
   return (
