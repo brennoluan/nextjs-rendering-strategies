@@ -2,6 +2,8 @@ import { fetchProductById, fetchProducts } from "../../../../lib/data-layer";
 import styles from "./page.module.css";
 import Produto from "@/app/components/Produto";
 
+export const revalidate = 10;
+
 export async function generateStaticParams() {
   try {
     const products = await fetchProducts({ limit: 100 });
