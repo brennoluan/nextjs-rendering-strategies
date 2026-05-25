@@ -240,7 +240,7 @@ async function verificarDados() {
   console.log(`   📂 Categorias: ${categorias?.length || 0}`);
   console.log(`   🛍️ Produtos: ${produtos?.length || 0}`);
   console.log(
-    `   ⭐ Em destaque: ${produtos?.filter((p) => p.isFeatured).length || 0}\n`
+    `   ⭐ Em destaque: ${produtos?.filter((p) => p.isFeatured).length || 0}\n`,
   );
 
   if (categorias?.length > 0) {
@@ -274,7 +274,7 @@ async function executarSeed() {
     console.log("   📂 Categorias: http://localhost:3000/api/categories");
     console.log("   🛍️ Produtos: http://localhost:3000/api/products");
     console.log(
-      "   ⭐ Em destaque: http://localhost:3000/api/products?featured=true\n"
+      "   ⭐ Em destaque: http://localhost:3000/api/products?featured=true\n",
     );
   } catch (error) {
     console.error("\n💥 ERRO NO SEED:", error.message);
